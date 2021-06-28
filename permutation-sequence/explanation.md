@@ -11,7 +11,7 @@ Theory:
 
 (3) We discover which group (n*th*) the final answer lies within
 
-(4) We remove the n*th* element in the ***list***, updates ***k*** ( ***k=k%(len(list)-1)!*** )
+(4) We update ***k*** ( ***k=k%(len(list)-1)!*** ) and remove the n*th* element in the ***list***
 
 (5) Repeat steps 3 - 5 until ***list*** is empty
 	
@@ -29,7 +29,7 @@ we can confirm that the final answer lies within **Group [int(k/(len(List)-1)!)]
 
 since we know the answer is in Group 2, meaning the 1st digit of the answer is '3' (equivalent to the value of ***List[2]*** ), answer = **3 _ _ _**
 
-we remove ***List[3]***  , update **k=k%(len(List)-1)!=3**
+we update **k=k%(len(List)-1)!=3** , remove ***List[3]***  
 
 ### Stage 2
 
@@ -42,7 +42,7 @@ we can decude the answer lies within **Group [int(k/(len(List)-1)!)] = 1**
 
 we can confirm that the 2nd digit is '2' (equivalent to the value of ***List[1]*** ), answer = **3 2 _ _**
 
-remove ***List[2]*** , update **k = k%(len(List)-1)!=1**
+we update **k = k%(len(List)-1)!=1**, remove ***List[2]*** ,
 
 ### Stage 3
 
@@ -52,7 +52,7 @@ remove ***List[2]*** , update **k = k%(len(List)-1)!=1**
 
 Answer lies within **Group [int(k/(len(List)-1!)] = 1**, 3rd digit is ***List[1]*** , which is '4', answer = **3 2 4** _
 
-remove ***List[1]*** , update **k = k%(len(List)-1)! = 0**
+we update **k = k%(len(List)-1)! = 0**, remove ***List[1]***
 	
 ### Stage 4
 	
