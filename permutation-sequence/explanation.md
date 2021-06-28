@@ -11,7 +11,7 @@ Theory:
 
 (3) We discover which group (n*th*) the final answer lies within
 
-(4) We update ***k*** ( ***k=k%(len(list)-1)!*** ) and remove the n*th* element in the ***list***
+(4) We update ***k*** ( ***k=k%(len(list)-1)!*** ) and remove the n*th* element from ***list***
 
 (5) Repeat steps 3 - 5 until ***list*** is empty
 	
