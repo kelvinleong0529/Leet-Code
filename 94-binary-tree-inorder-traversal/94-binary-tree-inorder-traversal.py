@@ -16,7 +16,6 @@ class Solution:
             ans.append(root.val)
             dfs(root.right)
 
-            return
         
         dfs(root)
         return ans
