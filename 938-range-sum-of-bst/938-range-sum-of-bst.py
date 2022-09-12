@@ -13,11 +13,12 @@ class Solution:
             if not root:
                 return 0
 
-            total += dfs(root.left)
-            if root.val >= low and root.val <= high:
-                total += root.val
-
-            total += dfs(root.right)
+            if root.val > high:
+                total += dfs(root.left)
+            elif root.val < low:
+                total += dfs(root.right)
+            else:
+                total += root.val + dfs(root.left) + dfs(root.right)
             return total
         
         return dfs(root)
