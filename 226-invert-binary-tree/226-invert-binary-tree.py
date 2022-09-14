@@ -11,9 +11,7 @@ class Solution:
             if not root:
                 return None
             
-            left, right = dfs(root.left), dfs(root.right)
-            root.left = right
-            root.right = left
+            root.right, root.left = dfs(root.left), dfs(root.right)
             
             return root
     
