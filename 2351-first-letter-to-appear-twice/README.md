@@ -8,7 +8,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> s = "abccbaacz"
 <strong>Output:</strong> "c"
@@ -20,7 +20,7 @@ The letter 'z' appears on the index 8.
 The letter 'c' is the first letter to appear twice, because out of all the letters the index of its second occurrence is the smallest.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> s = "abcdd"
 <strong>Output:</strong> "d"
