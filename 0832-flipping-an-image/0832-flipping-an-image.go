@@ -1,5 +1,4 @@
 func flipAndInvertImage(image [][]int) [][]int {
-    answer := make([][]int,0)
     for i := range image {
         temp := make([]int,0)
         for j := len(image[i])-1; j >= 0; j-- {
@@ -9,7 +8,7 @@ func flipAndInvertImage(image [][]int) [][]int {
                 temp = append(temp,0)
             }
         }
-        answer = append(answer,temp)
+        image[i] = temp
     }
-    return answer
+    return image
 }
