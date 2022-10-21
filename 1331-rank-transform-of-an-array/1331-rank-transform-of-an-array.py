@@ -3,10 +3,11 @@ class Solution:
         hashMap = {}
         ans = [1]*len(arr)
         for i,v in enumerate(arr):
-            if -v in hashMap:
-                hashMap[-v].append(i)
+            if v in hashMap:
+                hashMap[v].append(i)
             else:
-                hashMap[-v] = [i]
+                hashMap[v] = [i]
+                
 
         heapq.heapify(arr)
         count = 1
@@ -16,7 +17,7 @@ class Solution:
             if value == previous:
                 continue
             previous = value
-            for a in hashMap[-value]:
+            for a in hashMap[value]:
                 ans[a] = count
             count += 1
         return ans
