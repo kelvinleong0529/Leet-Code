@@ -20,10 +20,11 @@ func (m *maxHeap) Pop() interface{} {
 
 func findKthLargest(nums []int, k int) int {
     h := &maxHeap{}
-    heap.Init(h)
+    
     for i := range nums {
-        heap.Push(h, nums[i])
+        *h = append(*h,nums[i])
     }
+    heap.Init(h)
     k--
     for k > 0 {
         heap.Pop(h)
