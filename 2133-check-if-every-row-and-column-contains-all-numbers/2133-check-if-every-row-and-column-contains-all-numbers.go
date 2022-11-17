@@ -1,5 +1,3 @@
-package main
-
 func transpose(arr [][]int) [][]int {
 	var res = make([][]int, len(arr))
 	for i := 0; i < len(arr); i++ {
