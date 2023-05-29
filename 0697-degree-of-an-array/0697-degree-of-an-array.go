@@ -10,24 +10,18 @@ func findShortestSubArray(nums []int) int {
 	maxFrequency := 0
 	ans := len(nums)
 	for _, v := range hashMap {
+		distance := v[2] - v[1]
+		if distance == 0 {
+			continue
+		}
 		if v[0] > maxFrequency {
 			maxFrequency = v[0]
-			distance := v[2] - v[1]
-			if distance == 0 {
-				continue
-			}
 			ans = distance
-		} else if v[0] == maxFrequency {
-			distance := v[2] - v[1]
-			if distance == 0 {
-				continue
-			}
-			if distance < ans {
-				ans = distance
-			}
+		} else if v[0] == maxFrequency && distance < ans {
+			ans = distance
 		}
 	}
-    if maxFrequency == 1 {
+	if maxFrequency == 0 {
 		return 1
 	}
 	return ans + 1
