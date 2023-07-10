@@ -6,15 +6,30 @@
  * }
  */
 func reverseList(head *ListNode) *ListNode {
-	var p1, p2 *ListNode
-	for {
+	stack := make([]*ListNode, 0)
+
+	var recursiveFunc func(head *ListNode)
+	recursiveFunc = func(head *ListNode) {
 		if head == nil {
-			break
+			return
 		}
-		p2 = p1
-		p1 = head
-        head = head.Next
-		p1.Next = p2
+		stack = append(stack, head)
+		recursiveFunc(head.Next)
 	}
-	return p1
+    recursiveFunc(head)
+    
+    var newHead, p1 *ListNode
+	for i := len(stack) - 1; i >= 0; i-- {
+		if i == len(stack)-1 {
+			newHead = stack[i]
+			p1 = newHead
+			continue
+		}
+		p1.Next = stack[i]
+		p1 = stack[i]
+		if i == 0 {
+			p1.Next = nil
+		}
+	}
+	return newHead
 }
