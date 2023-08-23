@@ -7,29 +7,20 @@ func calculateDistance(x1, x2, y1, y2 int) float64 {
 func countPoints(points [][]int, queries [][]int) []int {
 	answer := make([]int, len(queries))
 
-	var waitGroup sync.WaitGroup
-
 	for i, v := range queries {
-		waitGroup.Add(1)
-		i := i
-		v := v
-		go func() {
-			defer waitGroup.Done()
-			x1 := v[0]
-			y1 := v[1]
-			r := v[2]
-			var count int
-			for _, point := range points {
-				x2 := point[0]
-				y2 := point[1]
-				if calculateDistance(x1, x2, y1, y2) <= float64(r) {
-					count++
-				}
+		x1 := v[0]
+		y1 := v[1]
+		r := v[2]
+		var count int
+		for _, point := range points {
+			x2 := point[0]
+			y2 := point[1]
+			if calculateDistance(x1, x2, y1, y2) <= float64(r) {
+				count++
 			}
-			answer[i] = count
-		}()
+		}
+		answer[i] = count
 	}
 
-	waitGroup.Wait()
 	return answer
 }
