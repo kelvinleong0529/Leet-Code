@@ -3,28 +3,21 @@ func minSteps(s string, t string) int {
 	hashMap2 := buildHashMap(t)
 	visited := make(map[rune]bool)
 	var answer int
-	for k := range hashMap1 {
-		if _, ok := visited[k]; ok {
-			continue
+	iterate := func(hashMap map[rune]int) {
+		for k := range hashMap {
+			if _, ok := visited[k]; ok {
+				continue
+			}
+			visited[k] = true
+			difference := hashMap1[k] - hashMap2[k]
+			if difference < 0 {
+				difference *= -1
+			}
+			answer += difference
 		}
-		visited[k] = true
-		difference := hashMap1[k] - hashMap2[k]
-		if difference < 0 {
-			difference *= -1
-		}
-		answer += difference
 	}
-	for k := range hashMap2 {
-		if _, ok := visited[k]; ok {
-			continue
-		}
-		visited[k] = true
-		difference := hashMap1[k] - hashMap2[k]
-		if difference < 0 {
-			difference *= -1
-		}
-		answer += difference
-	}
+	iterate(hashMap1)
+	iterate(hashMap2)
 	return answer / 2
 }
 
