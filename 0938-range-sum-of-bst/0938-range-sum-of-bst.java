@@ -14,20 +14,27 @@
  * }
  */
 class Solution {
+    private int answer;
+    
     public int rangeSumBST(TreeNode root, int low, int high) {
-        int[] answer = {0};
-        dfs(answer, root, low, high);
-        return answer[0];
-    }
+        answer = 0;
 
-    static public void dfs(int[] answer, TreeNode node, int low, int high) {
-        if (node == null) {
-            return;
+        class DFS {
+            void dfs(TreeNode node) {
+                if (node == null) {
+                    return;
+                }
+                if (node.val >= low && node.val <= high) {
+                    answer += node.val;
+                }
+                dfs(node.left);
+                dfs(node.right);
+            }
         }
-        if (node.val >= low && node.val <= high) {
-            answer[0] += node.val;
-        }
-        dfs(answer, node.left, low, high);
-        dfs(answer, node.right, low, high);
+       
+        DFS dfs = new DFS();
+        
+        dfs.dfs(root);
+        return answer;
     }
 }
