@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
-        HashMap<Integer,Boolean> hashMap1 = Solution.arrayToHashMap(nums1);
-        HashMap<Integer,Boolean> hashMap2 = Solution.arrayToHashMap(nums2);
-        HashMap<Integer,Boolean> intersection = Solution.hashMapIntersection(hashMap1, hashMap2);
+        HashMap<Integer,Boolean> hashMap1 = arrayToHashMap(nums1);
+        HashMap<Integer,Boolean> hashMap2 = arrayToHashMap(nums2);
+        HashMap<Integer,Boolean> intersection = hashMapIntersection(hashMap1, hashMap2);
 
         List<List<Integer>> answer = new ArrayList<>();
         int[][] nums = {nums1, nums2};
