@@ -19,7 +19,7 @@ class Solution {
         return root;
     }
 
-    public static void dfs(TreeNode node, int[] sum) {
+    public void dfs(TreeNode node, int[] sum) {
         if (node == null) {
             return;
         }
