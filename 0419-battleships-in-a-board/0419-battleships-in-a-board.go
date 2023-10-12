@@ -7,16 +7,14 @@ func countBattleships(board [][]byte) int {
 
     count := 0
 
-    // Define a DFS function to mark visited cells
     var dfs func(int, int)
     dfs = func(row, col int) {
         if row < 0 || row >= rows || col < 0 || col >= cols || board[row][col] == '.' {
             return
         }
 
-        board[row][col] = '.' // Mark the cell as visited
+        board[row][col] = '.'
 
-        // Recursively visit neighboring cells (up, down, left, and right)
         dfs(row+1, col)
         dfs(row-1, col)
         dfs(row, col+1)
@@ -27,7 +25,7 @@ func countBattleships(board [][]byte) int {
         for j := 0; j < cols; j++ {
             if board[i][j] == 'X' {
                 count++
-                dfs(i, j) // Visit the battleship and mark its connected cells
+                dfs(i, j)
             }
         }
     }
