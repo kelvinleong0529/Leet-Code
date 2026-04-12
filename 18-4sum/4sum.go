@@ -39,7 +39,7 @@ func fourSum(nums []int, target int) [][]int {
             } else if sum < target {
                 left++
             } else {
-                right-- // Corrected from right++
+                right--
             }
         }
     }
