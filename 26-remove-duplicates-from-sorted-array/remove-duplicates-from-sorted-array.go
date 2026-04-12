@@ -1,14 +1,16 @@
 func removeDuplicates(nums []int) int {
-    hashMap := make(map[int]bool)
 
-    for i := len(nums) - 1; i >= 0; i-- {
-        _, ok := hashMap[nums[i]]
-        if ok {
-            nums = append(nums[:i], nums[i+1:]...)
-        } else {
-            hashMap[nums[i]] = true
+    if len(nums) == 0 {
+        return 0
+    }
+
+    slow := 0
+    for fast := 1; fast < len(nums); fast++ {
+        if nums[fast] != nums[slow] {
+            slow++
+            nums[slow] = nums[fast]
         }
     }
 
-    return len(hashMap)
+    return slow + 1
 }
