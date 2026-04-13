@@ -1,23 +1,36 @@
 func coinChange(coins []int, amount int) int {
-    dp := make([]int, amount + 1)
 
-    for i := 1; i <= amount; i++ {
-        dp[i] = amount+1
+    if amount == 0 {
+        return 0
     }
 
-    for i := 1; i <= amount; i++ {
-        for _, c := range coins {
-            res := i - c
-            if res < 0 {
-                continue
+    queue := make([]int, 0)
+    queue = append(queue, amount)
+    visited := make(map[int]bool)
+    visited[amount] = true
+    steps := 0
+
+    for len(queue) > 0 {
+        steps++
+        size := len(queue)
+
+        for i := 0; i < size; i++ {
+
+            current := queue[0]
+            queue = queue[1:]
+
+            for _, coin := range coins {
+                res := current - coin
+                if res == 0 {
+                    return steps
+                }
+                if res > 0 && !visited[res] {
+                    visited[res] = true
+                    queue = append(queue, res)
+                }
             }
-            dp[i] = min(dp[i], 1 + dp[res])
         }
     }
 
-    // if dp[amount] == amount + 1, no solution
-    if dp[amount] > amount {
-        return -1
-    }
-    return dp[amount]
+    return -1
 }
