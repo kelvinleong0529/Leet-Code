@@ -1,37 +1,34 @@
 func longestPalindrome(s string) string {
-	var result string
-	var resultLength int
+    longest := 0
+    var ans string
 
-	for i := range s {
-		// odd case
-		oddLengthResult, oddResultLength := findLongPalindrome(s, i, i)
-		if oddResultLength > resultLength {
-			resultLength = oddResultLength
-            result = oddLengthResult
-		}
+    for i := 0; i < len(s); i++ {
 
-		// even case
-		evenLengthResult, evenResultLength := findLongPalindrome(s, i, i+1)
-		if evenResultLength > resultLength {
-            resultLength = evenResultLength
-			result = evenLengthResult
-		}
-	}
+        l, r := i, i
 
-	return result
-}
+        // odd case
+        for l >= 0 && r < len(s) && s[l] == s[r] {
+            length := r - l + 1
+            if length > longest {
+                ans = s[l:r+1]
+                longest = length
+            }
+            l--
+            r++
+        }
 
-func findLongPalindrome(s string, l int, r int) (string, int) {
-	result := ""
-	resultLength := 0
-	for {
-		if l < 0 || r > len(s)-1 || s[l] != s[r] {
-			break
-		}
-		result = s[l : r+1]
-		resultLength = len(result)
-		l--
-		r++
-	}
-	return result, resultLength
+        l, r = i, i + 1
+        // even case
+        for l >= 0 && r < len(s) && s[l] == s[r] {
+            length := r - l + 1
+            if length > longest {
+                ans = s[l:r+1]
+                longest = length
+            }
+            l--
+            r++
+        }
+    }
+
+    return ans
 }
