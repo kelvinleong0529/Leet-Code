@@ -1,19 +1,22 @@
 func isIsomorphic(s string, t string) bool {
-    sMap := make(map[string]string)
-	tMap := make(map[string]string)
+	sMap := make(map[byte]byte)
+	tMap := make(map[byte]byte)
 
-    for i := range len(s) {
-        v, ok := sMap[string(s[i])]
-		if ok && v != string(t[i]) {
+	for i := range len(s) {
+		charS := s[i]
+		charT := t[i]
+
+		if v, ok := sMap[charS]; ok && v != charT {
 			return false
 		}
-		v, ok = tMap[string(t[i])]
-		if ok && v != string(s[i]) {
+
+		if v, ok := tMap[charT]; ok && v != charS {
 			return false
 		}
-		sMap[string(s[i])] = string(t[i])
-		tMap[string(t[i])] = string(s[i])
-    }
+
+		sMap[charS] = charT
+		tMap[charT] = charS
+	}
 
 	return true
 }
