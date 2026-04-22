@@ -1,19 +1,14 @@
 func uniquePaths(m int, n int) int {
-	grid := make([][]int, m+1)
-	for row := range grid {
-		grid[row] = make([]int, n+1)
+	row := make([]int, n)
+	for i := range len(row) {
+		row[i] = 1
 	}
 
-	for row := m - 1; row >= 0; row-- {
-		for col := n - 1; col >= 0; col-- {
-			if row == m-1 && col == n-1 {
-				grid[row][col] = 1
-				continue
-			}
-
-			grid[row][col] = grid[row+1][col] + grid[row][col+1]
+	for r := m - 2; r >= 0; r-- {
+		for c := n - 2; c >= 0; c-- {
+			row[c] = row[c] + row[c+1]
 		}
 	}
 
-	return grid[0][0]
+	return row[0]
 }
