@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/valid-parentheses/">20. Valid Parentheses</a></h2><h3>Easy</h3><hr><div><p>Given a string <code>s</code> containing just the characters <code>'('</code>, <code>')'</code>, <code>'{'</code>, <code>'}'</code>, <code>'['</code> and <code>']'</code>, determine if the input string is valid.</p>
+<h2><a href="https://leetcode.com/problems/valid-parentheses">Valid Parentheses</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given a string <code>s</code> containing just the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;{&#39;</code>, <code>&#39;}&#39;</code>, <code>&#39;[&#39;</code> and <code>&#39;]&#39;</code>, determine if the input string is valid.</p>
 
 <p>An input string is valid if:</p>
 
@@ -9,29 +9,50 @@
 </ol>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> s = "()"
-<strong>Output:</strong> true
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;()&quot;</span></p>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+</div>
 
-<pre><strong>Input:</strong> s = "()[]{}"
-<strong>Output:</strong> true
-</pre>
+<p><strong class="example">Example 2:</strong></p>
 
-<p><strong>Example 3:</strong></p>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;()[]{}&quot;</span></p>
 
-<pre><strong>Input:</strong> s = "(]"
-<strong>Output:</strong> false
-</pre>
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;(]&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">false</span></p>
+</div>
+
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;([])&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+</div>
+
+<p><strong class="example">Example 5:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;([)]&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">false</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>s</code> consists of parentheses only <code>'()[]{}'</code>.</li>
+	<li><code>s</code> consists of parentheses only <code>&#39;()[]{}&#39;</code>.</li>
 </ul>
-</div>
